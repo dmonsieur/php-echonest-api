@@ -166,6 +166,20 @@ class EchoNest_Client
     }
 
     /**
+     * Get the genre API
+     *
+     * @return  EchoNestApiGenre  the genre API
+     */
+    public function getGenreApi($options = array())
+    {
+        if (!isset($this->apis['genre'])) {
+            $this->apis['genre'] = new EchoNest_Api_Genre($this, $options);
+        }
+
+        return $this->apis['genre'];
+    }
+
+    /**
      * Get the playlist API
      *
      * @return  EchoNestApiPlaylist  the playlist API
