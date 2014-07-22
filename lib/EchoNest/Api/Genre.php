@@ -87,18 +87,15 @@ class EchoNest_Api_Genre extends EchoNest_Api
    * @param   integer $results            the number of results desired (0 < $results < 100)
    * @param   integer $start              the desired index of the first result returned
    * @param   string|array $bucket        indicates what data should be returned with each genre
-   * @param   bool    $limit              if true, limit the results to the given idspace or catalog
    * @return  array                       array of similar artists found
    * @see     getProfile
    */
-  public function getSimilar($results = 15, $start = 0, $bucket = null,
-    $limit = false)
+  public function getSimilar($results = 15, $start = 0, $bucket = null)
   {
     $response = $this->getForGenre('genre/similar', array(
       'results' => $results,
       'start' => $start,
       'bucket' => $bucket,
-      'limit' => $limit,
     ));
 
     return $this->returnResponse($response, 'genres');
